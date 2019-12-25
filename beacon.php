@@ -57,7 +57,7 @@ $jsonFlex = [
         "contents" => [
           [
             "type" => "text",
-            "text" => "View Details",
+            "text" => "รายละเอียด",
             "size" => "lg",
             "align" => "start",
             "color" => "#0084B6",
