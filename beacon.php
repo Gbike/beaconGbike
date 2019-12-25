@@ -63,7 +63,7 @@ $jsonFlex = [
             "color" => "#0084B6",
             "action" => [
               "type" => "uri",
-              "label" => "View Details",
+              "label" => "รายละเอียด",
               "uri" => "https://google.co.th/"
             ]
           ]
