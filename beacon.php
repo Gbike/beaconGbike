@@ -14,7 +14,7 @@ var_export($request_array);
 
 $jsonFlex = [
     "type" => "flex",
-    "altText" => "เวลาเข้างาน",
+    "altText" => "เวลาเข้า-ออกงาน",
     "contents" => [
       "type" => "bubble",
       "direction" => "ltr",
@@ -24,7 +24,7 @@ $jsonFlex = [
         "contents" => [
           [
             "type" => "text",
-            "text" => "เวลาเข้างาน",
+            "text" => "เวลาเข้า-ออกงาน",
             "size" => "lg",
             "align" => "start",
             "weight" => "bold",
