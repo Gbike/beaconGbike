@@ -52,19 +52,13 @@ $jsonFlex = [
         "contents" => [
           [
             "type" => "text",
-            "text" => "บันทึกเวลา $new_date",
+            "text" => "บันทึกเวลา วันที่ $new_date",
             "size" => "lg",
             "align" => "start",
             "weight" => "bold",
             "color" => "#009813"
           ],
-          [
-            "type" => "text",
-            "text" => "$new_date",
-            "size" => "3xl",
-            "weight" => "bold",
-            "color" => "#000000"
-          ],
+
           [
             "type" => "text",
             "text" => "$new_time",
