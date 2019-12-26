@@ -48,38 +48,6 @@ $jsonFlex = [
             "type" => "separator",
             "margin" => "lg",
             "color" => "#C3C3C3"
-          ],
-          [{
-	dataSource: {
-		type: "json",
-		data: [
-		{
-			"date":{"type":"date string"},
-			"n":{"type":"number"}
-		},
-		{
-			"date":"2016-04-06T23:59:30",
-			"n":1
-		},
-		{
-			"date":"2016-04-06T23:59:30",
-			"n":1
-		},
-		{
-			"date":"2016-02-07T20:33",
-			"n":1
-		}
-		]
-	},
-	options: {
-		datePattern: "yyyy-MM-dd HH:mm:ss"
-	},
-	slice: {
-		rows: [{ uniqueName: "date" }],
-		columns: [{ uniqueName: "[Measures]" }],
-		measures: [{ uniqueName: "n" }],
-	}
-}
           ]
         ]
       ],
