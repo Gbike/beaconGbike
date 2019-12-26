@@ -60,7 +60,7 @@ $jsonFlex = [
           [
             "type" => "text",
             "text" => "$new_date",
-            "size" => "2xl",
+            "size" => "xl",
             "weight" => "bold",
             "color" => "#000000"
           ],
