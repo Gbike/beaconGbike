@@ -16,7 +16,7 @@ $request = file_get_contents('php://input');   // Get request content
 $request_array = json_decode($request, true);   // Decode JSON to Array
 var_export($request_array);
 
-$new_date = date('d-m-Y', strtotime($_POST['dateFrom']));
+$new_date = todate('d-m-Y', strtotime($_POST['dateFrom']));
 echo $new_date;
 
 $jsonFlex = [
