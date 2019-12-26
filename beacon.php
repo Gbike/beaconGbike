@@ -32,7 +32,7 @@ $jsonFlex = [
           ],
           [
             "type" => "text",
-            "date" => "ms-since-epoch",
+            "date" => "date-full",
             "size" => "3xl",
             "weight" => "bold",
             "color" => "#000000"
