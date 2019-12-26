@@ -32,7 +32,7 @@ $jsonFlex = [
           ],
           [
             "type" => "text",
-            "text" => "$date",
+            "text" => "$event",
             "size" => "3xl",
             "weight" => "bold",
             "color" => "#000000"
