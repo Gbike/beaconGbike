@@ -28,7 +28,7 @@ $jsonFlex = [
         "contents" => [
           [
             "type" => "text",
-            "text" => "บันทึกเลา",
+            "text" => "บันทึกเวลา",
             "size" => "lg",
             "align" => "start",
             "weight" => "bold",
