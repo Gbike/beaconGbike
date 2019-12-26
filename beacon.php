@@ -52,8 +52,8 @@ $jsonFlex = [
         "contents" => [
           [
             "type" => "text",
-            "text" => "วันที่ $new_date",
-            "size" => "3xl",
+            "text" => "บันทึกเวลา",
+            "size" => "lg",
             "align" => "start",
             "weight" => "bold",
             "color" => "#009813",
