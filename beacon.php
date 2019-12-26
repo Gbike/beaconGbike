@@ -17,7 +17,7 @@ $request_array = json_decode($request, true);   // Decode JSON to Array
 var_export($request_array);
 
 date_default_timezone_set("Asia/Bangkok");
-$new_date = date("d/m/Y");
+$new_date = date("d/m/Y+543");
 echo $new_date;
 $new_time = date("H:i:s");
 echo $new_time;
