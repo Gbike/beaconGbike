@@ -35,7 +35,7 @@ $month_arr=array(
  
 echo date("d")." ".$month_arr[date("n")]." ".(date("Y")+543);
 
-$new_date = date("d/m/Y");
+$new_date = date("d")." ".$month_arr[date("n")]." ".(date("Y")+543);
 echo $new_date;
 $new_time = date("H:i:s");
 echo $new_time;
