@@ -56,7 +56,7 @@ $jsonFlex = [
         "layout" => "horizontal",
         "contents" => [
           [
-              "type" => "string",
+              "type" => "date",
               "date" => "date"
             "size" => "lg",
             "align" => "start",
