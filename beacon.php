@@ -16,9 +16,10 @@ $request = file_get_contents('php://input');   // Get request content
 $request_array = json_decode($request, true);   // Decode JSON to Array
 var_export($request_array);
 
+date_default_timezone_set("Asia/Bangkok");
 $new_date = date("d/m/Y");
 echo $new_date;
-$new_time = date("h:i:s");
+$new_time = date("H:i:s");
 echo $new_time;
 
 $jsonFlex = [
