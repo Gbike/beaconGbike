@@ -56,8 +56,8 @@ $jsonFlex = [
         "layout" => "horizontal",
         "contents" => [
           [
-              "type" => "date",
-              "date" => "date"
+            "type" => "text",
+            "text" => "รายละเอียด",
             "size" => "lg",
             "align" => "start",
             "color" => "#0084B6",
