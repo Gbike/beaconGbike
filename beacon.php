@@ -24,7 +24,7 @@ $jsonFlex = [
         "contents" => [
           [
             "type" => "text",
-            "text" => "เวลาเข้า-ออกงาน",
+            "text" => "บันทึกเวลา",
             "size" => "lg",
             "align" => "start",
             "weight" => "bold",
