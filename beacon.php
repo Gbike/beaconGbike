@@ -49,6 +49,12 @@ $jsonFlex = [
             "weight" => "bold",
             "color" => "#000000"
           ],
+            
+            [          
+             "type": "sticker",
+             "packageId": "1",
+             "stickerId": "2563"
+          ],
           [
             "type" => "separator",
             "margin" => "lg",
@@ -71,10 +77,6 @@ $jsonFlex = [
               "label" => "รายละเอียด",
               "uri" => "https://google.co.th/"
             ],
-              ["type": "sticker",
-  "packageId": "1",
-  "stickerId": "2563"
-               ],
           ]
         ]
       ]
