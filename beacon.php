@@ -56,8 +56,9 @@ $jsonFlex = [
         "layout" => "horizontal",
         "contents" => [
           [
-            "type" => "text",
-            "text" => "รายละเอียด",
+              "type" => "uri",
+              "label" => "รายละเอียด",
+              "uri" => "https://google.co.th/"
             "size" => "lg",
             "align" => "start",
             "color" => "#0084B6",
