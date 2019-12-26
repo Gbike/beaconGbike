@@ -49,12 +49,6 @@ $jsonFlex = [
             "weight" => "bold",
             "color" => "#000000"
           ],
-            
-            [          
-             "type": "sticker",
-             "packageId": "1",
-             "stickerId": "2563"
-          ],
           [
             "type" => "separator",
             "margin" => "lg",
