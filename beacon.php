@@ -17,10 +17,29 @@ $request_array = json_decode($request, true);   // Decode JSON to Array
 var_export($request_array);
 
 date_default_timezone_set("Asia/Bangkok");
+
+$month_arr=array(
+    "1"=>"มกราคม",
+    "2"=>"กุมภาพันธ์",
+    "3"=>"มีนาคม",
+    "4"=>"เมษายน",
+    "5"=>"พฤษภาคม",
+    "6"=>"มิถุนายน", 
+    "7"=>"กรกฎาคม",
+    "8"=>"สิงหาคม",
+    "9"=>"กันยายน",
+    "10"=>"ตุลาคม",
+    "11"=>"พฤศจิกายน",
+    "12"=>"ธันวาคม"                 
+);
+ 
+echo date("d")." ".$month_arr[date("n")]." ".(date("Y")+543);
+
 $new_date = date("d/m/Y");
 echo $new_date;
 $new_time = date("H:i:s");
 echo $new_time;
+
 
 $jsonFlex = [
     "type" => "flex",
