@@ -119,6 +119,11 @@ function send_reply_message($url, $post_header, $post_body)
     curl_close($ch);
 
     return $result;
+    
+    echo "Today is " . date("Y/m/d") . "<br>";
+echo "Today is " . date("Y.m.d") . "<br>";
+echo "Today is " . date("Y-m-d") . "<br>";
+echo "Today is " . date("l");
 }
 
 ?>
