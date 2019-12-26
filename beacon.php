@@ -62,7 +62,7 @@ $jsonFlex = [
             "type" => "separator",
             "margin" => "lg",
             "color" => "#C3C3C3"
-          ]
+          ],
           [
             "type" => "text",
             "text" => "$new_date",
