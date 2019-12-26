@@ -44,6 +44,7 @@ $jsonFlex = [
     "altText" => "เวลาเข้า-ออกงาน",
     "contents" => [
       "type" => "bubble",
+      "size": "giga",
       "direction" => "ltr",
       "header" => [
         "type" => "box",
