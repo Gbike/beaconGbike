@@ -65,7 +65,7 @@ $jsonFlex = [
             "weight" => "bold",
             "color" => "#000000"
           ]
-                   
+              ]     
                    
           ],
           [
