@@ -57,7 +57,7 @@ $jsonFlex = [
         "contents" => [
           [
               "type" => "string",
-              "datetime" => "full-date T time-hour:time-minute "
+              "datetime" => "full-date"
             "size" => "lg",
             "align" => "start",
             "color" => "#0084B6",
