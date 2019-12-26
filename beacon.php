@@ -17,12 +17,6 @@ $request = file_get_contents('php://input');   // Get request content
 $request_array = json_decode($request, true);   // Decode JSON to Array
 var_export($request_array);
 
-    echo "Today is " . date("Y/m/d") . "<br>";
-echo "Today is " . date("Y.m.d") . "<br>";
-echo "Today is " . date("Y-m-d") . "<br>";
-echo "Today is " . date("l");
-
-
 $jsonFlex = [
     "type" => "flex",
     "altText" => "เวลาเข้า-ออกงาน",
@@ -76,7 +70,11 @@ $jsonFlex = [
               "type" => "uri",
               "label" => "รายละเอียด",
               "uri" => "https://google.co.th/"
-            ]
+            ],
+              ["type": "sticker",
+  "packageId": "1",
+  "stickerId": "2563"
+               ],
           ]
         ]
       ]
