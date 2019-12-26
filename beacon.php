@@ -32,8 +32,6 @@ $month_arr=array(
     "11"=>"พฤศจิกายน",
     "12"=>"ธันวาคม"                 
 );
- 
-echo date("d")." ".$month_arr[date("n")]." ".(date("Y")+543);
 
 $new_date = date("d")." ".$month_arr[date("n")]." ".(date("Y")+543);
 echo $new_date;
