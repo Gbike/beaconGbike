@@ -106,7 +106,7 @@ $jsonFlex = [
             "action" => [
               "type" => "uri",
               "label" => "รายละเอียด",
-              "uri" => "https://google.co.th/"
+              "uri" => "https://www.google.co.th/"
             ]
           ]
         ]
