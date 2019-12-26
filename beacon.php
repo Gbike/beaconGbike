@@ -1,126 +1,112 @@
-<?php
+public class RestaurantMenuFlexMessageSupplier implements Supplier<FlexMessage> {
+    @Override
+    public FlexMessage get() {
+        final Image heroBlock = createHeroBlock();
+        final Box bodyBlock = createBodyBlock();
+        final Box footerBlock = createFooterBox();
 
+        final Bubble bubble = Bubble.builder()
+                .hero(heroBlock)
+                .body(bodyBlock)
+                .footer(footerBlock)
+                .build();
+        return new FlexMessage("Restaurant Menu", bubble);
+    }
 
-$API_URL = 'https://api.line.me/v2/bot/message';
-//it-beacon
-$ACCESS_TOKEN = '4rdPrwctgzH4f52jYbtvykZkki+MN2xZK+finbLthiCRMR1fyBLt+dlKU8ExfQxxcV7ZC9VX+lG/VG5XnZHp7xuoVQs4tyoCNUA0TxZek8M1DqArJBPPalW51qk2NWCu0L1En5v+FdTDw3csua882gdB04t89/1O/w1cDnyilFU='; 
-$channelSecret = '39a9b2c7954e9685bc7007335ea632ba';
+    private Image createHeroBlock() {
+        return Image.builder()
+                .url("https://2553d2b9.ngrok.io/berger.png")
+                .size(Image.ImageSize.FULL_WIDTH)
+                .aspectRatio(Image.ImageAspectRatio.R20TO13)
+                .aspectMode(Image.ImageAspectMode.Cover)
+                .action(new URIAction("label", "http://example.com"))
+                .build();
+    }
 
-//it@cubook
-//$ACCESS_TOKEN = 'MalHeKonc+s+4OxE1F17SBgCojCXD37LHJpTEmsmUwEm6lAqxZyRN28h5jISMwoKUtuZTNQVw8z6582k6avlNPpED8QLmdMDcTGKSdONAFL4e/PZ+1NGrb0j4M1Q59hnpKYaUT4elMd92DmjRyuyWAdB04t89/1O/w1cDnyilFU=';
-//$channelSecret = '2669bb384ac7522ea63d19dd55f324de';
+    private Box createBodyBlock() {
+        final Text title = Text.builder()
+                .text("Brown's Burger")
+                .weight(Text.TextWeight.BOLD)
+                .size(FlexFontSize.XL)
+                .build();
+        final Box menus = createMenusBox();
+        final Box recipe = createRecipeBox();
 
+        return Box.builder()
+                .layout(FlexLayout.VERTICAL)
+                .spacing(FlexMarginSize.MD)
+                .contents(asList(title, menus, recipe))
+                .build();
+    }
 
-$POST_HEADER = array('Content-Type: application/json', 'Authorization: Bearer ' . $ACCESS_TOKEN);
+    private Box createRecipeBox() {
+        final Box recipe = Box.builder()
+                .layout(FlexLayout.BASELINE)
+                .spacing(FlexMarginSize.XS)
+                .contents(asList(
+                        Text.builder()
+                                .text("Source, Onions, Pickles, Lettuce & Cheese")
+                                .size(FlexFontSize.XS)
+                                .color("#aaaaaa")
+                                .flex(1)
+                                .build())).build();
+        return recipe;
+    }
 
-$request = file_get_contents('php://input');   // Get request content
-$request_array = json_decode($request, true);   // Decode JSON to Array
-var_export($request_array);
+    private Box createMenusBox() {
+        final Box menu1 = Box.builder()
+                .layout(FlexLayout.BASELINE)
+                .contents(asList(
+                        Icon.builder()
+                        .url("https://2553d2b9.ngrok.io/regular.png").build(),
+                        Text.builder().text("$10.5")
+                                .weight(Text.TextWeight.BOLD)
+                                .margin(FlexMarginSize.SM)
+                                .flex(0)
+                                .build(),
+                        Text.builder().text("400kcl")
+                                .size(FlexFontSize.SM)
+                                .align(FlexAlign.END)
+                                .color("#aaaaaa")
+                                .build()
 
-$jsonFlex = [
-    "type" => "flex",
-    "altText" => "เวลาเข้า-ออกงาน",
-    "contents" => [
-      "type" => "bubble",
-      "direction" => "ltr",
-      "header" => [
-        "type" => "box",
-        "layout" => "vertical",
-        "contents" => [
-          [
-            "type" => "text",
-            "text" => "บันทึกเวลา",
-            "size" => "lg",
-            "align" => "start",
-            "weight" => "bold",
-            "color" => "#009813"
-          ],
-          [
-            "type" => "text",
-            "text" => "ทดสอบ 00:00:00",
-            "size" => "3xl",
-            "weight" => "bold",
-            "color" => "#000000"
-          ],
-          [
-            "type" => "text",
-            "text" => "สาขาแว่นแก้ว",
-            "size" => "lg",
-            "weight" => "bold",
-            "color" => "#000000"
-          ],
-          [
-            "type" => "separator",
-            "margin" => "lg",
-            "color" => "#C3C3C3"
-          ]
-        ]
-      ],
-      "footer" => [
-        "type" => "box",
-        "layout" => "horizontal",
-        "contents" => [
-          [
-            "type" => "text",
-            "text" => "รายละเอียด",
-            "size" => "lg",
-            "align" => "start",
-            "color" => "#0084B6",
-            "action" => [
-              "type" => "uri",
-              "label" => "รายละเอียด",
-              "uri" => "https://google.co.th/"
-            ],
-          ]
-        ]
-      ]
-    ]
-  ];
+                ))
+                .build();
+        final Box menu2 = Box.builder()
+                .layout(FlexLayout.BASELINE)
+                .contents(asList(
+                        Icon.builder()
+                                .url("https://2553d2b9.ngrok.io/large.png").build(),
+                        Text.builder().text("$15.5")
+                                .weight(Text.TextWeight.BOLD)
+                                .margin(FlexMarginSize.SM)
+                                .flex(0)
+                                .build(),
+                        Text.builder().text("550kcl")
+                                .size(FlexFontSize.SM)
+                                .align(FlexAlign.END)
+                                .color("#aaaaaa")
+                                .build()
 
+                ))
+                .build();
+        return Box.builder()
+                .layout(FlexLayout.VERTICAL)
+                .spacing(FlexMarginSize.SM)
+                .contents(asList(menu1, menu2))
+                .build();
+    }
 
-
-if ( sizeof($request_array['events']) > 0 ) {
-    foreach ($request_array['events'] as $event) {
-        error_log(json_encode($event));
-        $reply_message = '';
-        $reply_token = $event['replyToken'];
-
-
-        $data = [
-            'replyToken' => $reply_token,
-            'messages' => [$jsonFlex]
-        ];
-
-        print_r($data);
-
-        $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
-
-        $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $post_body);
-
-        echo "Result: ".$send_result."\r\n";
-        
+    private Box createFooterBox() {
+        final Spacer spacer = Spacer.builder().size(FlexMarginSize.XXL).build();
+        final Button button = Button.builder()
+                .style(Button.ButtonStyle.PRIMARY)
+                .color("#905c44")
+                .action(new URIAction("Add to Cart", "http://example.com"))
+                .build();
+        return Box.builder()
+                .layout(FlexLayout.VERTICAL)
+                .contents(asList(spacer, button))
+                .build();
     }
 }
-
-echo "OK";
-
-
-
-
-function send_reply_message($url, $post_header, $post_body)
-{
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $post_header);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_body);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    $result = curl_exec($ch);
-    curl_close($ch);
-
-    return $result;
-    
-
-}
-
-?>
