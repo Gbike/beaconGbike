@@ -16,8 +16,10 @@ $request = file_get_contents('php://input');   // Get request content
 $request_array = json_decode($request, true);   // Decode JSON to Array
 var_export($request_array);
 
-$new_date = date("h:i:sa");
+$new_date = date("d/m/Y");
 echo $new_date;
+$new_time = date("h:i:s");
+echo $new_time;
 
 $jsonFlex = [
     "type" => "flex",
@@ -40,6 +42,13 @@ $jsonFlex = [
           [
             "type" => "text",
             "text" => "$new_date",
+            "size" => "3xl",
+            "weight" => "bold",
+            "color" => "#000000"
+          ],
+          [
+            "type" => "text",
+            "text" => "$new_time",
             "size" => "3xl",
             "weight" => "bold",
             "color" => "#000000"
