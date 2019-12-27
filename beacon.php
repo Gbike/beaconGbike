@@ -77,7 +77,7 @@ $jsonFlex = [
             "align" => "center",              
             "size" => "4xl",
             "weight" => "bold",
-            "color" => "#000000"
+            "color" => "#111111"
           ],
 //          [
 //            "type" => "text",
