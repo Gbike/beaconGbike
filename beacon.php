@@ -12,7 +12,7 @@ $channelSecret = '39a9b2c7954e9685bc7007335ea632ba';
 
 $POST_HEADER = array('Content-Type: application/json', 'Authorization: Bearer ' . $ACCESS_TOKEN);
 
-//$request = file_get_contents('php://input');   // Get request content
+$request = file_get_contents('php://input');   // Get request content
 $request_array = json_decode($request, true);   // Decode JSON to Array
 var_export($request_array);
 
@@ -117,7 +117,7 @@ $jsonFlex = [
 if ( sizeof($request_array['events']) > 0 ) {
     foreach ($request_array['events'] as $event) {
         error_log(json_encode($event));
-        $reply_message = '';
+        $reply_message = 'Start';
         $reply_token = $event['replyToken'];
 
         $data = [
