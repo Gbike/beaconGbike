@@ -52,7 +52,7 @@ $jsonFlex = [
         "contents" => [
           [
             "type" => "text",
-            "text" => "บันทึกเวลา  ระหัสพนักงาน : 100444",
+            "text" => "บันทึกเวลา  รหัส:100444",
             "size" => "lg",
             "align" => "start",
             "weight" => "bold",
