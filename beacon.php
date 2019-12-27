@@ -52,7 +52,7 @@ $jsonFlex = [
         "contents" => [
           [
             "type" => "text",
-            "text" => "บันทึกเวลา",
+            "text" => "บันทึกเวลา  ระหัสพนักงาน : 100444",
             "size" => "lg",
             "align" => "start",
             "weight" => "bold",
@@ -79,13 +79,13 @@ $jsonFlex = [
             "weight" => "bold",
             "color" => "#0000ff"
           ],
-//          [
-//            "type" => "text",
-//            "text" => "สาขาแว่นแก้ว",
-//            "size" => "lg",
-//            "weight" => "bold",
-//            "color" => "#000000"
-//          ],
+          [
+            "type" => "text",
+            "text" => "สาขาแว่นแก้ว",
+            "size" => "lg",
+            "weight" => "bold",
+            "color" => "#000000"
+          ],
           [
             "type" => "separator",
             "margin" => "lg",
