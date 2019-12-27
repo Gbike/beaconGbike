@@ -53,6 +53,7 @@ $jsonFlex = [
           [
             "type" => "text",
             "text" => "บันทึกเวลา",
+   "getHWID" => "BeaconData",
             "size" => "lg",
             "align" => "start",
             "weight" => "bold",
