@@ -16,141 +16,61 @@ $request = file_get_contents('php://input');   // Get request content
 $request_array = json_decode($request, true);   // Decode JSON to Array
 var_export($request_array);
 
-date_default_timezone_set("Asia/Bangkok");
+if ( sizeof($request_array['events']) > 0 )
+{
 
-$month_arr=array(
-    "1"=>"มกราคม",
-    "2"=>"กุมภาพันธ์",
-    "3"=>"มีนาคม",
-    "4"=>"เมษายน",
-    "5"=>"พฤษภาคม",
-    "6"=>"มิถุนายน", 
-    "7"=>"กรกฎาคม",
-    "8"=>"สิงหาคม",
-    "9"=>"กันยายน",
-    "10"=>"ตุลาคม",
-    "11"=>"พฤศจิกายน",
-    "12"=>"ธันวาคม"                 
-);
+ foreach ($request_array['events'] as $event)
+ {
+  $reply_message = '';
+  $reply_token = $event['replyToken'];
 
-$new_date = date("d")." ".$month_arr[date("n")]." ".(date("Y")+543);
-echo $new_date;
-$new_time = date("H:i:s");
-echo $new_time;
-
-
-$jsonFlex = [
-    "type" => "flex",
-    "altText" => "เวลาเข้า-ออกงาน",
-    "contents" => [
-      "type" => "bubble",
-//      "size" => "giga",
-      "direction" => "ltr",
-      "header" => [
-        "type" => "box",
-        "layout" => "vertical",
-        "contents" => [
-          [
-            "type" => "text",
-            "text" => "บันทึกเวลา",
-            "size" => "lg",
-            "align" => "start",
-            "weight" => "bold",
-            "color" => "#009813",
-          ],
-          [
-            "type" => "separator",
-            "margin" => "lg",
-            "color" => "#C3C3C3"
-          ],
-          [
-            "type" => "text",
-            "text" => "$new_date",
-            "align" => "center",                   
-            "size" => "3xl",
-            "weight" => "bold",
-            "color" => "#000000"
-          ],
-          [
-            "type" => "text",
-            "text" => "$new_time",
-            "align" => "center",              
-            "size" => "4xl",
-            "weight" => "bold",
-            "color" => "#0000ff"
-          ],
-//          [
-//            "type" => "text",
-//            "text" => "สาขาแว่นแก้ว",
-//            "size" => "lg",
-//            "weight" => "bold",
-//            "color" => "#000000"
-//          ],
-          [
-            "type" => "separator",
-            "margin" => "lg",
-            "color" => "#C3C3C3"
-          ]
-        ]
-      ],
-      "footer" => [
-        "type" => "box",
-        "layout" => "horizontal",
-        "contents" => [
-          [
-            "type" => "text",
-            "text" => "รายละเอียด",
-            "size" => "lg",
-            "align" => "start",
-            "color" => "#0084B6",
-            "action" => [
-              "type" => "uri",
-              "label" => "รายละเอียด",
-              "uri" => "https://www.google.co.th/"
-            ]
-          ]
-        ]
-      ]
-    ]
-  ];
-
-if ( sizeof($request_array['events']) > 0 ) {
-    foreach ($request_array['events'] as $event) {
-        error_log(json_encode($event));
-        $reply_message = '';
-        $reply_token = $event['replyToken'];
-
-        $data = [
-            'replyToken' => $reply_token,
-            'messages' => [$jsonFlex]
-        ];
-
-        print_r($data);
-      
-        $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
-
-        $send_result = send_reply_message($API_URL.'/reply', $POST_HEADER, $post_body);
-
-        echo "Result: ".$send_result."\r\n";
-        
+  if( $result['parameters'] == 'website'){
+    $text = $result['parameters']['website'];
+    $reply_message = 'I will check website status right now ('.$text.') ';
+    $ip = gethostbyname($text);
+    if (!$socket = @fsockopen($ip, 80, $errno, $errstr, 30))
+    {
+      //echo "Offline!";
+      $reply_message = 'Offline';
     }
-}
+    else 
+    {
+      //echo "Online!";
+      $reply_message = 'Online';
+      fclose($socket);
+    }
 
-echo "OK";
+  }
+
+  if( strlen($reply_message) > 0 )
+  {
+   //$reply_message = iconv("tis-620","utf-8",$reply_message);
+   $data = [
+    'replyToken' => $reply_token,
+    'messages' => [['type' => 'text', 'text' => $reply_message]]
+   ];
+   $post_body = json_encode($data, JSON_UNESCAPED_UNICODE);
+
+   $send_result = send_reply_message($API_URL, $POST_HEADER, $post_body);
+   echo "Result: ".$send_result."
+";
+  }
+ }
+}
 
 function send_reply_message($url, $post_header, $post_body)
 {
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $post_header);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_body);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    $result = curl_exec($ch);
-    curl_close($ch);
+ $ch = curl_init($url);
+ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+ curl_setopt($ch, CURLOPT_HTTPHEADER, $post_header);
+ curl_setopt($ch, CURLOPT_POSTFIELDS, $post_body);
+ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+ $result = curl_exec($ch);
+ curl_close($ch);
 
-    return $result;
-
+ return $result;
 }
 
 ?>
+
